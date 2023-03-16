@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Movie App</title>
+  </head>
+
+  <body>
+
+    {{!--  --}}
+
+    <div id="blurry-filter"></div>
+<header>
+  <div class="header__content" >
+    <a href="/" class="header__logo">MovieApp</a>
+    <nav class="navigation">
+      <ul class="navigation__list navigation__list--inline">
+        <li class="navigation__item"><a href="/" class="navigation__link navigation__link--is-active">Home</a></li>
+        <li class="navigation__item"><a href="/aboutus" class="navigation__link">About Us</a></li>
+        <li class="navigation__item"><a href="/comments" class="navigation__link">Work</a></li>
+        <li class="navigation__item"><a href="/admin" class="navigation__link">Clients</a></li>
+        <li class="navigation__item"><a href="/allopinions" class="navigation__link">Discuss</a></li>
+      </ul>
+    </nav>
+    <form>
+      <input type="text" class="header__search" placeholder="Поиск" />
+    </form>
+    <nav class="navigation">
+      <ul class="navigation__list navigation__list--inline">
+        <li class="navigation__item"><a href="/login" class="navigation__link navigation__link--is-active">Login</a></li>
+        <li class="navigation__item"><form action="/logout" method="POST"><button><a class="navigation__link">Log out</a></button></form></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{{!--  --}}
+
+    <br>
+    <br>
+    <div class="container">
+    
+      <div class="movies">
+            {{#each films}}
+                <div>
+
+                            <div class="movie__cover-inner">
+                                <img src="{{this.image}}" class="movie__cover" alt="{{this.name}}"/>
+                                <a href="/opinion/{{this.name}}" ><div class="movie__cover--darkened"></div></a>
+                            </div>
+                <div class="movie__info">
+                    <div class="movie__title">{{this.name}}</div>
+                    <div class="movie__category">{{this.genre}}</div>
+                    <div class="movie__average movie__average--${getClassByRate(movie.rating)}">{{this.rating}}</div>
+                </div>
+                </div>
+                      {{!-- <a href="/opinion/${respData.nameRu}" ></a>Перейти к обсуждению</a> --}}
+
+                <br>
+                {{/each}}
+      </div>
+
+
+      </div>
+      
+      <div class="modal"></div>
+    </div>
+    
+    <script src="js/rating.js"></script>
+  </body>
+</html>
+
+
+{{!-- <div class="movie__cover-inner">
+        <img
+          src="${movie.posterUrlPreview}"
+          class="movie__cover"
+          alt="${movie.nameRu}"
+        />
+        <div class="movie__cover--darkened"></div>
+      </div>
+      <div class="movie__info">
+                <div class="movie__title">${movie.nameRu}</div>
+                <div class="movie__category">${movie.genres.map(          (genre) => ` ${genre.genre}`        )}</div>
+            
+            <div class="movie__average movie__average--${getClassByRate(
+            movie.rating
+            )}">${movie.rating}</div>
+       
+       
+        </div> --}}

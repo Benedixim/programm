@@ -1,0 +1,143 @@
+h1 {
+  color: rgb(255, 255, 255);
+  font-family: sans-serif;
+  font-size: 2em;
+  margin-bottom: 0;
+  display: inline-block;
+  
+}
+
+.widthDiv{
+  width: 80% !important;
+  margin-left: 150px !important;
+}
+
+table {
+  font-family: sans-serif;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 10px;
+
+}
+table th,
+table td {
+  padding: 0.25em 0.5em;
+  text-align: left;
+
+}
+
+
+table th:nth-child(2),
+table td:nth-child(2) {
+  text-align: right;
+}
+table td {
+  background-color: #eee;
+  
+}
+table th {
+  background-color: rgb(42, 42, 47);
+  color: #fff;
+}
+
+.zigzag {
+  border-collapse: separate;
+  border-spacing: 0.25em 1em;
+}
+.zigzag tbody tr:nth-child(odd) {
+  transform: rotate(2deg);
+}
+.zigzag thead tr,
+.zigzag tbody tr:nth-child(even) {
+  transform: rotate(-2deg);
+}
+
+
+/* +user */
+
+.link {
+  color: white;
+  border-bottom: 2px solid #ff8cbc;
+  transition: all 0.25s linear;
+  position: relative;
+}
+
+.link:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #61a3ff;
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* this is to match where the border is */
+  transform-origin: left; 
+  transform: scale(0);
+  transition: 0.25s linear;
+/*   will-change: transform; */
+}
+
+.link:hover:before {
+  transform: scale(1);
+}
+
+
+
+
+
+
+/* edit p {   color: #2B3044;}*/
+
+
+
+p a {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  margin: 0 var(--spacing, 0px);
+  transition: margin 0.25s;
+}
+p a svg {
+  width: 40px;
+  height: 35px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 7px) translateZ(0);
+  fill: none;
+  stroke: var(--stroke,#BBC1E1);
+  stroke-linecap: round;
+  stroke-width: 2px;
+  stroke-dasharray: var(--offset, 69px) 278px;
+  stroke-dashoffset: 361px;
+  transition: stroke 0.25s ease var(--stroke-delay, 0s), stroke-dasharray 0.35s;
+}
+p a:hover {
+  --spacing: 4px;
+  --stroke: #275EFE;
+  --stroke-delay: .1s;
+  --offset: 180px;
+}
+
+
+/* заголовок */
+
+h1 {
+  font-size: 50px;
+  text-transform: uppercase;
+  font-family: cursive;
+  letter-spacing: -3px;
+  transition: 700ms ease;
+  font-variation-settings: "wght" 311;
+  margin-bottom: 0.8rem;
+  color: white;
+  outline: none;
+  text-align: center;
+  font-style: inherit;
+}
+
+h1:hover {
+  font-variation-settings: "wght" 582; 
+  letter-spacing: 1px;
+}

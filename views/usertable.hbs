@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список пользователей</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="/css/table.css">
+</head>
+<body>
+     <div id="blurry-filter"></div>
+<header>
+  <div class="header__content" >
+    <a href="/" class="header__logo">MovieApp</a>
+    <nav class="navigation">
+      <ul class="navigation__list navigation__list--inline">
+        <li class="navigation__item"><a href="/" class="navigation__link navigation__link--is-active">Home</a></li>
+        <li class="navigation__item"><a href="/aboutus" class="navigation__link">About Us</a></li>
+        <li class="navigation__item"><a href="/comments" class="navigation__link">Work</a></li>
+        <li class="navigation__item"><a href="/admin" class="navigation__link">Clients</a></li>
+        <li class="navigation__item"><a href="/allopinions" class="navigation__link">Discuss</a></li>
+      </ul>
+    </nav>
+    <form>
+      <input type="text" class="header__search" placeholder="Поиск" />
+    </form>
+    <nav class="navigation">
+      <ul class="navigation__list navigation__list--inline">
+        <li class="navigation__item"><a href="/login" class="navigation__link navigation__link--is-active">Login</a></li>
+        <li class="navigation__item"><form action="/logout" method="POST"><button><a class="navigation__link">Log out</a></button></form></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+   
+
+     <br>
+     <br>
+   
+    <div style="text-align: center;">
+         <h1>Список пользователей</h1>
+         <p><a class="link" href="/create">Добавить пользователя</a></p>
+        <table class="zigzag">
+            <tr>
+                <th class="header">firstname</th>
+                <th class="header">lastname</th>
+                <th class="header">username</th>
+                <th class="header">password</th>
+                <th class="header">role</th>
+                <th></th>
+            </tr>
+            {{#each users}}
+                <tr>
+                    <td style="color: black;">{{this.firstname}}</td>
+                    <td style="color: black;">{{this.lastname}}</td>
+                    <td style="color: black;">{{this.username}}</td>
+                    <td style="color: black;">{{this.password}}</td>
+                    <td style="color: black;">{{this.role}}</td>
+                    <td>
+                        {{!-- ccылка <a class="link" href="/edit/{{this.id}}">Edit</a>| --}}
+                        
+                            <p>
+                                <a href="/edit/{{this.id}}" style="color: black;">
+                                    Edit
+                                    <svg viewBox="0 0 70 36">
+                                        <path d="M6.9739 30.8153H63.0244C65.5269 30.8152 75.5358 -3.68471 35.4998 2.81531C-16.1598 11.2025 0.894099 33.9766 26.9922 34.3153C104.062 35.3153 54.5169 -6.68469 23.489 9.31527" />
+                                    </svg>
+                                </a>
+                            </p>
+                        {{!-- /сслыка --}}
+                        <form class="modal__button-close" action="delete/{{this.id}}" method="POST" style="display:inline;">
+                            <input type="submit" value="Delete" />
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        </table>
+    </div>
+</body>
+<html>

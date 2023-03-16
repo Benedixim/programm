@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Редактирование пользователя</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="/css/signup.css">
+     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
+</head>
+<body>
+
+     {{!-- <%- include('../views/header'); %> --}}
+  <div id="blurry-filter"></div>
+    <header>
+  <div class="header__content" >
+    <a href="/" class="header__logo">MovieApp</a>
+    <nav class="navigation">
+      <ul class="navigation__list navigation__list--inline">
+        <li class="navigation__item"><a href="/" class="navigation__link navigation__link--is-active">Home</a></li>
+        <li class="navigation__item"><a href="/aboutus" class="navigation__link">About Us</a></li>
+        <li class="navigation__item"><a href="/comments" class="navigation__link">Work</a></li>
+        <li class="navigation__item"><a href="/admin" class="navigation__link">Clients</a></li>
+        <li class="navigation__item"><a href="/allopinions" class="navigation__link">Discuss</a></li>
+      </ul>
+    </nav>
+    <form>
+      <input type="text" class="header__search" placeholder="Поиск" />
+    </form>
+    <nav class="navigation">
+      <ul class="navigation__list navigation__list--inline">
+        <li class="navigation__item"><a href="/login" class="navigation__link navigation__link--is-active">Login</a></li>
+        <li class="navigation__item"><form action="/logout" method="POST"><button><a class="navigation__link">Log out</a></button></form></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+{{!--  --}}
+
+    <br>
+	<br>
+	<div class="container" style="width: 50% !important;">
+        
+    
+		<div class="row">
+		<div class="col-md-3">
+					
+		</div>
+				
+		<div class="col-md-6 main" style="background-color: white;">
+
+
+
+
+   
+     <form action="/edit" method="POST">
+      <h1 style="color:black;">Редактирование комментария</h1>
+        <input class="box" type="hidden"  name="id" value="{{idmycomment.idmycomments}}" /><br>
+
+       <!--  -->
+        <input class="box" type="text" name="username" id="phone" placeholder="Name user"
+        value="{{idmycomment.iduser}}" required/><br>
+
+        <input class="box" type="text" name="film" id="name" placeholder="Film"
+        value="{{idmycomment.namefilm}}" required /><br>
+                        
+        <input class="box" type="text" name="rating" id="email" placeholder="Rating"
+        value="{{idmycomment.rating}}" required /><br>
+                        
+        <input class="box" type="text" name="review" placeholder="Review"
+        id="password" value="{{idmycomment.review}}" required/><br>
+                        
+        <input class="box" type="text" name="sendDate" id="phone" placeholder="Senf Date"
+        value="{{idmycomment.send_date}}" required/><br>
+
+        
+        <!--  -->
+
+        <input type="submit" value="Отправить" />
+                <h1><a href="/comments" style="color:#767474; font-size: 20px;">К списку комментариев</a></h1>
+
+
+     </form>
+     
+     </div>
+				
+				
+    <div class="col-md-3">
+    </div>
+            
+</div>
+</div>
+</body>
+<html>
