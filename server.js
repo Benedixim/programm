@@ -131,10 +131,10 @@ app.post('/sign_up', encodeUrl, (req, res) => {
                     <nav class="navigation">
                       <ul class="navigation__list navigation__list--inline">
                         <li class="navigation__item"><a href="/" class="navigation__link navigation__link--is-active">Home</a></li>
-                        <li class="navigation__item"><a href="#" class="navigation__link">About Us</a></li>
+                        <li class="navigation__item"><a href="/aboutus" class="navigation__link">About Us</a></li>
                         <li class="navigation__item"><a href="/comments" class="navigation__link">Work</a></li>
                         <li class="navigation__item"><a href="/admin" class="navigation__link">Clients</a></li>
-                        <li class="navigation__item"><a href="#" class="navigation__link">Contact</a></li>
+                        <li class="navigation__item"><a href="/allopinions" class="navigation__link">Discuss</a></li>
                       </ul>
                     </nav>
                     <form>
@@ -246,10 +246,10 @@ app.post('/login', encodeUrl, (req, res)=>{
                 <nav class="navigation">
                   <ul class="navigation__list navigation__list--inline">
                     <li class="navigation__item"><a href="/" class="navigation__link navigation__link--is-active">Home</a></li>
-                    <li class="navigation__item"><a href="#" class="navigation__link">About Us</a></li>
+                    <li class="navigation__item"><a href="/aboutus" class="navigation__link">About Us</a></li>
                     <li class="navigation__item"><a href="/comments" class="navigation__link">Work</a></li>
                     <li class="navigation__item"><a href="/admin" class="navigation__link">Clients</a></li>
-                    <li class="navigation__item"><a href="#" class="navigation__link">Contact</a></li>
+                    <li class="navigation__item"><a href="/allopinions" class="navigation__link">Discuss</a></li>
                   </ul>
                 </nav>
                 <form>
@@ -298,7 +298,7 @@ app.post('/login', encodeUrl, (req, res)=>{
 app.get('/comments', isAuth, function(req, res){
   con.query(`SELECT * FROM mycomments`, function(err, data) {
     if(err) return console.log(err);
-    if (req.session.user.role == "ADMIN"){res.render("comments.hbs", {
+    if (req.session.user.role == "ADMIN" || req.session.user.role == "MODERATOR"){res.render("comments.hbs", {
       comments: data
   });}
   else res.redirect('/access');
@@ -317,7 +317,7 @@ app.post("/deleteCom/:idmycomments", function(req, res){
 });
 
 
-app.get('/editCom/:idmycomments', function(req, res){
+app.get('/editCom/:idmycomments', isAuth, function(req, res){
   const idmycomments = req.params.idmycomments;
   con.query('SELECT * FROM mycomments WHERE idmycomments=?', [idmycomments], function(err, data) {
     if(err) return console.log(err);
@@ -328,7 +328,7 @@ app.get('/editCom/:idmycomments', function(req, res){
 });
 
 
-app.post("/edit", encodeUrl, function (req, res) {
+app.post("/editCom", encodeUrl, function (req, res) {
          
   if(!req.body) return res.sendStatus(400);
   const username = req.body.username;
@@ -368,7 +368,7 @@ app.get('/access', function(req, res){
 });
 
 // возвращаем форму для добавления данных
-app.get('/create', function(req, res){
+app.get('/create', isAuth, function(req, res){
     res.render('create');
 });
 // получаем отправленные данные и добавляем их в БД 
@@ -388,7 +388,7 @@ app.post("/create", encodeUrl, function (req, res) {
 });
  
 // получем id редактируемого пользователя, получаем его из бд и отправлям с формой редактирования
-app.get('/edit/:id', function(req, res){
+app.get('/edit/:id', isAuth, function(req, res){
   const id = req.params.id;
   con.query('SELECT * FROM users WHERE id=?', [id], function(err, data) {
     if(err) return console.log(err);
@@ -429,7 +429,7 @@ app.post("/delete/:id", function(req, res){
 
 // opinion
 
-app.get('/opinion/:name', function(req, res){
+app.get('/opinion/:name',function(req, res){
   const name = req.params.name;
   con.query('SELECT * FROM films WHERE name=?', [name], function(err, data) {
     if(err) return console.log(err);

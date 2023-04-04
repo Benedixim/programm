@@ -54,24 +54,24 @@
 
 
    
-     <form action="/edit" method="POST">
+     <form action="/editCom" method="POST">
       <h1 style="color:black;">Редактирование комментария</h1>
         <input class="box" type="hidden"  name="id" value="{{idmycomment.idmycomments}}" /><br>
 
        <!--  -->
-        <input class="box" type="text" name="username" id="phone" placeholder="Name user"
+        <input class="box" type="text" name="username" id="username" placeholder="Name user"
         value="{{idmycomment.iduser}}" required/><br>
 
-        <input class="box" type="text" name="film" id="name" placeholder="Film"
+        <input class="box" type="text" name="film" id="film" placeholder="Film"
         value="{{idmycomment.namefilm}}" required /><br>
                         
-        <input class="box" type="text" name="rating" id="email" placeholder="Rating"
+        <input class="box" type="text" name="rating" id="rating" placeholder="Rating"
         value="{{idmycomment.rating}}" required /><br>
                         
-        <input class="box" type="text" name="review" placeholder="Review"
+        <input class="box" type="text" name="review" id="review" placeholder="Review"
         id="password" value="{{idmycomment.review}}" required/><br>
                         
-        <input class="box" type="text" name="sendDate" id="phone" placeholder="Senf Date"
+        <input class="box" type="text" name="sendDate" id="sendDate" placeholder="Senf Date"
         value="{{idmycomment.send_date}}" required/><br>
 
         

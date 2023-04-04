@@ -58,20 +58,34 @@
         <input class="box" type="hidden"  name="id" value="{{user.id}}" /><br>
 
        <!--  -->
-        <input class="box" type="text" name="firstName" id="name"
+        <input class="box" type="text" name="firstName" id="firstName" placeholder="First Name"
         value="{{user.firstname}}" required /><br>
                         
-        <input class="box" type="text" name="lastName" id="email"
+        <input class="box" type="text" name="lastName" id="lastName" placeholder="Last Name"
         value="{{user.lastname}}" required /><br>
                         
-        <input class="box" type="password" name="password"
+        <input class="box" type="text" name="password" placeholder="Password"
         id="password" value="{{user.password}}" required/><br>
                         
-        <input class="box" type="text" name="userName" id="phone"
+        <input class="box" type="text" name="userName" id="userName" placeholder="User Name"
         value="{{user.username}}" required/><br>
 
-        <input class="box" type="text" name="role" id="phone"
-        value="{{user.role}}" required/><br>
+         <input class="box" type="text"  value="Текущая роль: {{user.role}}" disabled/><br>
+
+
+
+       {{!-- <p>
+      <input name="role" type="radio" value="USER">USER
+       <input name="role" type="radio" value="MODERATOR">MODERATOR
+       <input name="role" type="radio" value="ADMIN" checked>ADMIN
+      </p> --}}
+
+          <p><select  name="role" size="1" required style="font-family: 'Helvetica', serif; width: 100%; font-size: 20px;    padding: 12px 20px;  margin: 8px 0; border: none;     border-bottom: 2px solid #767474;">
+        <option name="role" value="USER" >Новая роль: USER</option>
+        <option name="role" value="MODERATOR" >Новая роль: MODERATOR</option>
+        <option name="role" value="ADMIN" >Новая роль: ADMIN</option>
+      </select>
+      
         <!--  -->
 
 

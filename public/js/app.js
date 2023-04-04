@@ -116,7 +116,7 @@ async function openModal(id) {
 
       </ul>
       <br> 
-      <a href="/opinion/${respData.nameRu}" >Перейти к обсуждению</a>
+      <a href="/opinion/${respData.nameRu}" style="color: white; margin-left: 190px;">Перейти к обсуждению</a>
 
       <button type="button" class="modal__button-close" >Закрыть</button>
       <form  method="post"  >
@@ -128,7 +128,7 @@ async function openModal(id) {
       <input class="box" type="hidden" name="description" value="${respData.description}" />
       <input class="box" type="hidden" name="link" value="${respData.webUrl}" />
 
-      <input type="submit" value="Отправить"  />
+      <input type="submit" value="Отправить" style=" padding: 0;  border: none; color: inherit; font: inherit; background-color: transparent; cursor: pointer;  margin-left: 240px;" />
     </form>  
     </div>
   `

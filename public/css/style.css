@@ -161,7 +161,7 @@
   
   .modal__button-close {
     padding: 5px;
-    margin: 10px;
+    /* margin: 10px; */
     align-self: center;
   }
 
@@ -444,4 +444,8 @@
    .timeline-container.danger .timeline-icon {
     background: #fd5d93 !important;
   }
+  
+
+
+
   
